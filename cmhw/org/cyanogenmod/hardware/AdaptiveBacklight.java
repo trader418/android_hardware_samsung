@@ -47,16 +47,11 @@ public class AdaptiveBacklight {
      * the operation failed while reading the status; true in any other case.
      */
     public static boolean isEnabled() {
-        try {
-            if (Integer.parseInt(FileUtils.readOneLine(FILE_CABC)) == 1) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-        setEnabled(false);
+        if (Integer.parseInt(FileUtils.readOneLine(FILE_CABC)) == 1) {
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     /**
